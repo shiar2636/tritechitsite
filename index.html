@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Company | MSP • Security • Compliance</title>
+  <meta name="description" content="Managed IT Services, Cybersecurity, and Compliance support for growing businesses." />
+
+  <style>
+    :root{
+      --bg: #0b1220;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.10);
+      --text: #e9eefc;
+      --muted: rgba(233,238,252,.75);
+      --line: rgba(233,238,252,.14);
+      --accent: #d4af37; /* gold */
+      --accent2: #55d6ff;
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --radius: 16px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(85,214,255,.16), transparent 60%),
+        radial-gradient(700px 450px at 90% 20%, rgba(212,175,55,.12), transparent 55%),
+        linear-gradient(180deg, #070b14, var(--bg));
+      min-height:100vh;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:min(1100px, 92vw); margin:0 auto; }
+
+    /* Top bar / tabs */
+    .topbar{
+      position: sticky;
+      top:0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(7,11,20,.65);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:12px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .logo{
+      width:34px; height:34px;
+      border-radius: 10px;
+      background:
+        linear-gradient(135deg, rgba(212,175,55,.95), rgba(85,214,255,.85));
+      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+      display:grid;
+      place-items:center;
+      color:#07101f;
+      font-size: 14px;
+      font-weight: 900;
+    }
+    nav{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .tab{
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-weight:600;
+      font-size: 14px;
+      transition: .2s ease;
+    }
+    .tab:hover{
+      background: rgba(255,255,255,.07);
+      color: var(--text);
+      border-color: rgba(233,238,252,.22);
+    }
+    .tab.cta{
+      border-color: rgba(212,175,55,.45);
+      background: linear-gradient(180deg, rgba(212,175,55,.18), rgba(212,175,55,.08));
+      color: var(--text);
+    }
+
+    /* Hero */
+    header{
+      padding: 56px 0 22px;
+    }
+    .hero{
+      display:grid;
+      grid-template-columns: 1.3fr .9fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+    .card{
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-main{
+      padding: 28px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-main:before{
+      content:"";
+      position:absolute;
+      inset:-80px -120px auto auto;
+      width:280px; height:280px;
+      background: radial-gradient(circle at 30% 30%, rgba(212,175,55,.35), transparent 60%);
+      filter: blur(2px);
+      transform: rotate(12deg);
+    }
+    .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,.35);
+      background: rgba(212,175,55,.08);
+      color: var(--muted);
+      font-weight:700;
+      font-size: 12px;
+      letter-spacing:.8px;
+      text-transform: uppercase;
+    }
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(30px, 3.6vw, 46px);
+      line-height: 1.05;
+      letter-spacing: -0.6px;
+    }
+    .sub{
+      margin:0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height:1.6;
+      max-width: 70ch;
+    }
+    .hero-actions{
+      margin-top: 18px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:800;
+      transition:.2s ease;
+    }
+    .btn:hover{ background: rgba(255,255,255,.07); border-color: rgba(233,238,252,.25); }
+    .btn.primary{
+      border-color: rgba(212,175,55,.5);
+      background: linear-gradient(180deg, rgba(212,175,55,.22), rgba(212,175,55,.10));
+    }
+    .btn small{ color: var(--muted); font-weight:700; }
+
+    .hero-side{
+      padding: 18px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .mini{
+      padding:16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(233,238,252,.12);
+    }
+    .mini h3{
+      margin:0 0 6px;
+      font-size: 14px;
+      letter-spacing:.2px;
+    }
+    .mini p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.55;
+    }
+    .badge-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top: 10px;
+    }
+    .badge{
+      font-size:12px;
+      font-weight:800;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(233,238,252,.14);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+    }
+
+    /* Sections */
+    section{ padding: 26px 0; }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing:-.2px;
+    }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      max-width: 70ch;
+      font-size: 14px;
+      line-height:1.5;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .tile{
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+      transition:.2s ease;
+    }
+    .tile:hover{
+      transform: translateY(-2px);
+      border-color: rgba(233,238,252,.24);
+      background: rgba(255,255,255,.05);
+    }
+    .tile .icon{
+      width:38px; height:38px;
+      border-radius: 12px;
+      display:grid;
+      place-items:center;
+      font-weight:900;
+      color:#081125;
+      background: linear-gradient(135deg, rgba(85,214,255,.85), rgba(212,175,55,.85));
+      margin-bottom: 10px;
+    }
+    .tile h3{ margin: 0 0 8px; font-size: 16px; }
+    .tile p{ margin:0; color: var(--muted); font-size: 14px; line-height:1.55; }
+    ul.clean{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      color: var(--muted);
+      font-size: 14px;
+      line-height:1.55;
+    }
+    ul.clean li{
+      padding-left: 18px;
+      position: relative;
+      margin: 7px 0;
+    }
+    ul.clean li:before{
+      content:"";
+      position:absolute;
+      left:0; top:.55em;
+      width:8px; height:8px;
+      border-radius: 999px;
+      background: rgba(212,175,55,.9);
+      box-shadow: 0 0 0 3px rgba(212,175,55,.15);
+      transform: translateY(-50%);
+    }
+
+    /* Contact */
+    .contact-wrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items:stretch;
+    }
+    .contact-card{ padding: 18px; }
+    .contact-card h3{ margin:0 0 8px; font-size: 18px; }
+    .contact-card p{ margin:0 0 12px; color: var(--muted); line-height:1.55; }
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      margin: 10px 0;
+    }
+    label{ font-size: 13px; color: var(--muted); font-weight:700; }
+    input, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border:1px solid rgba(233,238,252,.16);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      outline:none;
+    }
+    input:focus, textarea:focus{
+      border-color: rgba(85,214,255,.45);
+      box-shadow: 0 0 0 4px rgba(85,214,255,.12);
+    }
+    textarea{ min-height: 110px; resize: vertical; }
+    .note{
+      font-size: 12px;
+      color: rgba(233,238,252,.65);
+      margin-top: 8px;
+      line-height:1.5;
+    }
+    footer{
+      padding: 26px 0 44px;
+      color: rgba(233,238,252,.6);
+      font-size: 12px;
+      border-top: 1px solid var(--line);
+      margin-top: 26px;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: 1fr; }
+      .contact-wrap{ grid-template-columns: 1fr; }
+      nav{ justify-content:flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top Tabs -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top">
+        <div class="logo">IT</div>
+        <div>
+          <div style="font-size:14px; line-height:1;">Your Company</div>
+          <div style="font-size:12px; color:var(--muted); font-weight:700;">MSP • Security • Compliance</div>
+        </div>
+      </a>
+
+      <nav aria-label="Primary">
+        <a class="tab" href="#msp">MSP</a>
+        <a class="tab" href="#security">Security</a>
+        <a class="tab" href="#compliance">Compliance</a>
+        <a class="tab" href="#about">About</a>
+        <a class="tab cta" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header id="top">
+    <div class="container hero">
+      <div class="card hero-main">
+        <span class="kicker">Reliable IT • Strong Security • Proven Compliance</span>
+        <h1>One partner for IT operations, cybersecurity, and compliance.</h1>
+        <p class="sub">
+          We help small and mid-sized businesses stay productive, protected, and audit-ready.
+          Managed IT services, security hardening, and compliance support—delivered with clear communication and fast response.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#contact">Request a quote</a>
+          <a class="btn" href="#msp">Explore services <small>↓</small></a>
+        </div>
+
+        <div class="badge-row" aria-label="Highlights">
+          <span class="badge">Fast Response</span>
+          <span class="badge">Security-First</span>
+          <span class="badge">Documentation</span>
+          <span class="badge">Remote + Onsite</span>
+        </div>
+      </div>
+
+      <aside class="card hero-side" aria-label="Quick info">
+        <div class="mini">
+          <h3>What we do</h3>
+          <p>Day-to-day IT + proactive monitoring, cybersecurity controls, and compliance guidance—all in one plan.</p>
+        </div>
+        <div class="mini">
+          <h3>Who we help</h3>
+          <p>Medical, legal, finance, nonprofits, and growing businesses that need strong IT without the overhead.</p>
+        </div>
+        <div class="mini">
+          <h3>How we work</h3>
+          <p>Clear scope. Simple pricing. Documented changes. Monthly reporting with real recommendations.</p>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <!-- MSP -->
+  <section id="msp">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>MSP Services</h2>
+          <p>Keep your team running smoothly with proactive support, monitoring, and predictable IT operations.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="tile">
+          <div class="icon">⚙</div>
+          <h3>Managed IT & Helpdesk</h3>
+          <p>Friendly support, device management, and quick resolution with clear communication.</p>
+          <ul class="clean">
+            <li>End-user support (remote & onsite)</li>
+            <li>PC/Mac provisioning & lifecycle</li>
+            <li>Microsoft 365 / Google Workspace</li>
+          </ul>
+        </div>
+
+        <div class="tile">
+          <div class="icon">📡</div>
+          <h3>Monitoring & Maintenance</h3>
+          <p>Proactive monitoring to catch issues before they become downtime.</p>
+          <ul class="clean">
+            <li>Patch management</li>
+            <li>Health & uptime monitoring</li>
+            <li>Backup checks & reporting</li>
+          </ul>
+        </div>
+
+        <div class="tile">
+          <div class="icon">☁</div>
+          <h3>Cloud & Networking</h3>
+          <p>Secure Wi-Fi, VPN, firewalls, and cloud configurations designed for stability.</p>
+          <ul class="clean">
+            <li>Network design & hardening</li>
+            <li>VPN / Zero-Trust access</li>
+            <li>Vendor coordination</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security -->
+  <section id="security">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Security</h2>
+          <p>Layered protection that reduces risk: endpoints, identity, email security, and user awareness.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="tile">
+          <div class="icon">🛡</div>
+          <h3>Endpoint Protection</h3>
+          <p>Secure and monitor devices to prevent malware, ransomware, and data loss.</p>
+          <ul class="clean">
+            <li>EDR/AV deployment</li>
+            <li>Device encryption & hardening</li>
+            <li>Asset inventory</li>
+          </ul>
+        </div>
+
+        <div class="tile">
+          <div class="icon">🔐</div>
+          <h3>Identity & Access</h3>
+          <p>Stop account takeovers with modern authentication and least-privilege access.</p>
+          <ul class="clean">
+            <li>MFA / Conditional Access</li>
+            <li>Password policy & SSO</li>
+            <li>Privileged access controls</li>
+          </ul>
+        </div>
+
+        <div class="tile">
+          <div class="icon">📧</div>
+          <h3>Email Security</h3>
+          <p>Reduce phishing and impersonation attacks with smart filtering and domain controls.</p>
+          <ul class="clean">
+            <li>Anti-phishing & spam filtering</li>
+            <li>DMARC / SPF / DKIM guidance</li>
+            <li>Security awareness tips</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance -->
+  <section id="compliance">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Compliance</h2>
+          <p>Policies, documentation, and controls that help you meet requirements and pass audits with confidence.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="tile">
+          <div class="icon">📄</div>
+          <h3>Policies & Procedures</h3>
+          <p>Build practical policies your team can follow (not just paperwork).</p>
+          <ul class="clean">
+            <li>Acceptable use / BYOD</li>
+            <li>Incident response basics</li>
+            <li>Access & password standards</li>
+          </ul>
+        </div>
+
+        <div class="tile">
+          <div class="icon">✅</div>
+          <h3>Controls & Evidence</h3>
+          <p>Implement controls and keep evidence organized for audits and insurers.</p>
+          <ul class="clean">
+            <li>Security baseline & hardening</li>
+            <li>Change logs & documentation</li>
+            <li>Quarterly review checklists</li>
+          </ul>
+        </div>
+
+        <div class="tile">
+          <div class="icon">🧾</div>
+          <h3>Risk & Vendor Review</h3>
+          <p>Identify risk, assess vendors, and prioritize the fixes that matter.</p>
+          <ul class="clean">
+            <li>Basic risk assessments</li>
+            <li>Vendor security questionnaires</li>
+            <li>Backup & DR reviews</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>About</h2>
+          <p>
+            Replace this text with your short story: years in business, who you serve, and what makes you different.
+            Keep it simple and confident.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="padding:18px;">
+        <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="tile" style="background:transparent; box-shadow:none;">
+            <h3 style="margin-top:0;">Approach</h3>
+            <p>Security-first IT with real documentation and proactive planning—not just break/fix.</p>
+          </div>
+          <div class="tile" style="background:transparent; box-shadow:none;">
+            <h3 style="margin-top:0;">Communication</h3>
+            <p>Clear explanations, fast updates, and no confusing tech talk.</p>
+          </div>
+          <div class="tile" style="background:transparent; box-shadow:none;">
+            <h3 style="margin-top:0;">Results</h3>
+            <p>Less downtime, fewer incidents, and a cleaner environment that’s easier to manage and audit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Contact</h2>
+          <p>Want pricing or a quick assessment? Send a message and we’ll get back to you.</p>
+        </div>
+      </div>
+
+      <div class="contact-wrap">
+        <div class="card contact-card">
+          <h3>Request a quote</h3>
+          <p>Fill this out and we’ll follow up. (This demo form doesn’t send anywhere yet—see note below.)</p>
+
+          <!-- Replace action with your form tool endpoint (Formspree, Getform, etc.) -->
+          <form action="#" method="post" onsubmit="return demoSubmit(event)">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="company">Company</label>
+              <input id="company" name="company" placeholder="Company name" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@company.com" required />
+            </div>
+            <div class="field">
+              <label for="message">How can we help?</label>
+              <textarea id="message" name="message" placeholder="Tell us what you're looking for..."></textarea>
+            </div>
+            <button class="btn primary" type="submit">Send message</button>
+            <div class="note">
+              Tip: If you want the form to actually send email, use a free form endpoint like Formspree/Getform and
+              paste their URL into <code>action="..."</code>.
+            </div>
+          </form>
+        </div>
+
+        <div class="card contact-card">
+          <h3>Company info</h3>
+          <p>Replace with your details.</p>
+
+          <div class="mini" style="margin-top:10px;">
+            <h3>Phone</h3>
+            <p>(000) 000-0000</p>
+          </div>
+          <div class="mini">
+            <h3>Email</h3>
+            <p>support@yourdomain.com</p>
+          </div>
+          <div class="mini">
+            <h3>Service Area</h3>
+            <p>Remote nationwide • Onsite in your region</p>
+          </div>
+
+          <div class="mini">
+            <h3>Quick links</h3>
+            <p>
+              <a class="tab" href="#msp">MSP</a>
+              <a class="tab" href="#security">Security</a>
+              <a class="tab" href="#compliance">Compliance</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Your Company. All rights reserved. • MSP • Security • Compliance
+    </div>
+  </footer>
+
+  <script>
+    // Demo-only: fake form submission so it doesn't error on free hosting.
+    function demoSubmit(e){
+      e.preventDefault();
+      alert("Thanks! Your message is ready to be sent. Hook this form to Formspree/Getform to receive it by email.");
+      e.target.reset();
+      return false;
+    }
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
