@@ -55,9 +55,14 @@
     }
     .brand{display:flex;align-items:center;gap:12px}
     .logo-img{
-      height:72px; /* even bigger logo */
+      height:88px; /* large desktop logo */
       width:auto;
       display:block;
+      transition: height .25s ease;
+    }
+    
+    .nav.shrink .logo-img{
+      height:56px; /* shrink on scroll */
     }
     .brand b{font-size:16px;letter-spacing:-.2px}
     .brand span{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-top:2px}
@@ -436,6 +441,13 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // shrink header on scroll
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) nav.classList.add('shrink');
+      else nav.classList.remove('shrink');
+    });
   </script>
 
   <!-- Tally embed loader -->
