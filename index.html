@@ -33,20 +33,20 @@
         .container { width: min(1200px, 90vw); margin: auto; }
         .red-text { color: var(--brand); }
 
-        /* HEADER & NAV - INCREASED PADDING FOR LARGER HEIGHT */
+        /* HEADER & NAV - EXTRA LARGE PADDING FOR MAXIMUM HEIGHT */
         .nav {
-            padding: 25px 0; 
+            padding: 40px 0; 
             position: sticky; 
             top: 0; 
             background: rgba(255,255,255,0.98);
             backdrop-filter: blur(10px); 
             z-index: 1000; 
             border-bottom: 1px solid #f1f5f9;
-            transition: padding 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         
-        /* LOGO STYLES - INCREASED LOGO SIZE */
+        /* LOGO STYLES - EXTRA LARGE LOGO SIZE */
         .logo { 
             display: flex;
             align-items: center;
@@ -54,7 +54,7 @@
             flex-shrink: 0; 
         }
         .logo img {
-            height: 70px; /* Significantly larger logo height */
+            height: 100px; /* Even larger logo height */
             width: auto;
             display: block;
             transition: height 0.3s ease;
@@ -64,13 +64,13 @@
         .tabs-header { 
             display: flex; 
             justify-content: center; 
-            gap: 10px; 
+            gap: 15px; 
             flex-grow: 1;
-            margin: 0 30px;
+            margin: 0 40px;
         }
         .tab-btn {
             padding: 12px 24px;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--text);
             background: none;
@@ -95,8 +95,8 @@
         }
 
         .btn {
-            padding: 14px 28px; border-radius: 8px; font-weight: 700; text-decoration: none;
-            display: inline-block; transition: 0.3s; font-size: 0.9rem; border: none; cursor: pointer;
+            padding: 16px 32px; border-radius: 8px; font-weight: 700; text-decoration: none;
+            display: inline-block; transition: 0.3s; font-size: 1rem; border: none; cursor: pointer;
             white-space: nowrap;
         }
         .btn-primary { background: var(--brand); color: #fff; }
@@ -104,15 +104,15 @@
         
         /* HERO */
         .hero { 
-            padding: 100px 0 80px; text-align: center;
+            padding: 120px 0 100px; text-align: center;
             background: radial-gradient(circle at top right, #fdf2f2, transparent);
         }
         .hero h1 { 
-            font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.1; font-weight: 800; 
+            font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; font-weight: 800; 
             margin-bottom: 25px; letter-spacing: -2px; color: var(--brand-secondary);
         }
         .hero p { 
-            font-size: 1.25rem; color: var(--text); max-width: 700px; margin: 0 auto 40px; 
+            font-size: 1.4rem; color: var(--text); max-width: 750px; margin: 0 auto 40px; 
         }
 
         /* CONTENT VISIBILITY */
@@ -192,11 +192,11 @@
         /* FOOTER */
         footer { background: #1a1a1a; color: #94a3b8; padding: 80px 0 40px; }
         .footer-logo { display: block; margin-bottom: 20px; text-decoration: none; }
-        .footer-logo img { height: 60px; width: auto; }
+        .footer-logo img { height: 80px; width: auto; }
 
         @media (max-width: 968px) {
-            .nav { padding: 15px 0; }
-            .logo img { height: 50px; }
+            .nav { padding: 20px 0; }
+            .logo img { height: 60px; }
             .tabs-header { display: none; }
             .grid-3, .contact-grid, .about-layout, .stats-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.5rem; }
@@ -210,7 +210,7 @@
             <!-- LOGO IMAGE -->
             <a href="#" class="logo">
                 <img src="assets/logo.png" alt="TriTech IT Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none; font-size: 1.8rem; font-weight: 800; color: var(--brand-secondary); letter-spacing: -1px;">TRI<span style="color:var(--brand)">TECH</span></span>
+                <span style="display:none; font-size: 2.2rem; font-weight: 800; color: var(--brand-secondary); letter-spacing: -1px;">TRI<span style="color:var(--brand)">TECH</span></span>
             </a>
             
             <!-- TABS INLINE WITH HEADER -->
@@ -235,7 +235,7 @@
                 <h1 data-aos="fade-up">Professional IT Support,<br><span class="red-text">Simplified.</span></h1>
                 <p data-aos="fade-up" data-aos-delay="100">Enterprise-grade technology for local businesses. We handle the complexity so you can lead with confidence.</p>
                 <div data-aos="fade-up" data-aos-delay="200">
-                    <a href="#contact" class="btn btn-primary" style="font-size: 1rem; padding: 16px 40px;">Get Started</a>
+                    <a href="#contact" class="btn btn-primary" style="font-size: 1.1rem; padding: 18px 45px;">Get Started Now</a>
                 </div>
             </header>
 
